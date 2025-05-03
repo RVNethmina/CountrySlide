@@ -23,7 +23,7 @@ const UserContextProvider = ({ children }) => {
   const getCountryData = async () => {
     try {
       const { data } = await axios.get(
-        `${backendUrl}/api/countries/get-all-countries`
+        `https://countryslide-backend.onrender.com/api/countries/get-all-countries`
       );
       
       if (!data || data.length === 0) {
