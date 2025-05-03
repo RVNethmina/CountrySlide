@@ -17,7 +17,7 @@ const UserContextProvider = ({ children }) => {
   );
   const [userData, setUserData] = useState([]);
   // Vite injects this at build time:
-  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  const backendUrl = "https://countryslide-backend.onrender.com";
 
   // 1) Get all countries
   const getCountryData = async () => {
