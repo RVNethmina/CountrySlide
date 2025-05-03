@@ -17,7 +17,7 @@ const UserContextProvider = ({ children }) => {
   );
   const [userData, setUserData] = useState([]);
   // Vite injects this at build time:
-  const backendUrl = "https://countryslide-backend.onrender.com";
+  
 
   // 1) Get all countries
   const getCountryData = async () => {
@@ -44,7 +44,7 @@ const UserContextProvider = ({ children }) => {
   const getCountryByCode = async (code) => {
     try {
       const { data } = await axios.get(
-        `${backendUrl}/api/countries/getByCode/${code}`
+        `https://countryslide-backend.onrender.com/api/countries/getByCode/${code}`
       );
       // our backend returns a single object
       setCountryByCode(data);
@@ -59,13 +59,13 @@ const UserContextProvider = ({ children }) => {
       let url;
       switch (filterType) {
         case "search":
-          url = `${backendUrl}/api/countries/searchByName/${value}`;
+          url = `https://countryslide-backend.onrender.com/api/countries/searchByName/${value}`;
           break;
         case "region":
-          url = `${backendUrl}/api/countries/filterByRegion/${value}`;
+          url = `https://countryslide-backend.onrender.com/api/countries/filterByRegion/${value}`;
           break;
         default:
-          url = `${backendUrl}/api/countries/get-all-countries`;
+          url = `https://countryslide-backend.onrender.com/api/countries/get-all-countries`;
       }
       const { data } = await axios.get(url);
       setCountries(data);
@@ -96,7 +96,7 @@ const UserContextProvider = ({ children }) => {
   const getUserData = async () => {
     try {
       const { data } = await axios.get(
-        `${backendUrl}/api/user/get-profile`
+        `https://countryslide-backend.onrender.com/api/user/get-profile`
       );
       if (data.success) setUserData(data.userData);
     } catch (error) {
