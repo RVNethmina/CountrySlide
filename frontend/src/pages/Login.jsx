@@ -24,7 +24,7 @@ const Login = () => {
   
     try {
 
-      const url = isLogin ? 'http://localhost:5000/api/user/login' : 'http://localhost:5000/api/user/register';
+      const url = isLogin ? 'https://countryslide-backend.onrender.com/api/user/login' : 'https://countryslide-backend.onrender.com/api/user/register';
       const payload = isLogin ? { email, password }  : { name, email, password };
   
       const { data } = await axios.post(url, payload);
